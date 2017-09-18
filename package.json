@@ -2,7 +2,7 @@
   "name": "jsutils",
   "version": "0.0.1",
   "description": "",
-  "main": "src/jsutils.js",
+  "main": "src/ToolBox.js",
   "scripts": {
     "compile": "babel --presets es2015 lib/ -d src/",
     "prepublish": "npm run compile"

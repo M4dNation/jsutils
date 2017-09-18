@@ -1,13 +1,13 @@
-# JSUtils
+# JSToolbox
 
 ## ABOUT
 
-JSUtils is a compilation of utility functions for the JavaScript language.
+JSToolbox is a compilation of utility functions for the JavaScript language.
 It provides often used functionalities about string, arrays, collections, object, numbers and more.
 
 ## AUTHORS
 
-JSUtils is maintained by M4dNation.
+JSToolbox is maintained by M4dNation.
 
 ## Contributors
 
@@ -15,4 +15,4 @@ There is actually no other contributors for this project. If you want to contrib
 
 ## LICENCE
 
-JSUtils is available under the terms of the MIT  LICENSE. Check the license file for more details.
+JSToolbox is available under the terms of the MIT  LICENSE. Check the license file for more details.
