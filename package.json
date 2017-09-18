@@ -1,8 +1,8 @@
 {
   "name": "jstoolbox",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
-  "main": "src/Toolbox.js",
+  "main": "src/jstoolbox.js",
   "scripts": {
     "compile": "babel --presets es2015 lib/ -d src/",
     "prepublish": "npm run compile"
