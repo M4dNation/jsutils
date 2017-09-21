@@ -5,7 +5,8 @@
   "main": "src/jstoolbox.js",
   "scripts": {
     "compile": "babel --presets es2015 lib/ -d src/",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run compile",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
