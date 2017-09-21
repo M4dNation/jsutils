@@ -1,10 +1,10 @@
 {
   "name": "jstoolbox",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "",
   "main": "src/jstoolbox.js",
   "scripts": {
-    "compile": "babel --presets es2015 lib/ -d src/",
+    "compile": "babel --presets es2015 jstoolbox.js -d src/",
     "prepublish": "npm run compile",
     "test": "mocha"
   },
