@@ -1,6 +1,6 @@
 var assert = require("assert");
-const Num = require("../lib/jstoolbox.js").Num;
-const Obj = require("../lib/jstoolbox.js").Obj;
+const Num = require("../jstoolbox.js").Num;
+const Obj = require("../jstoolbox.js").Obj;
 
 describe("Number Methods", function()
 {

@@ -1,6 +1,6 @@
 var assert = require("assert");
-const Obj = require("../lib/jstoolbox.js").Obj;
-const Utility = require("../lib/jstoolbox.js").Utility;
+const Obj = require("../jstoolbox.js").Obj;
+const Utility = require("../jstoolbox.js").Utility;
 
 describe("Utility Methods", function()
 {

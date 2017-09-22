@@ -1,5 +1,5 @@
 var assert = require("assert");
-const Func = require("../lib/jstoolbox.js").Func;
+const Func = require("../jstoolbox.js").Func;
 
 describe("Function Methods", function()
 {

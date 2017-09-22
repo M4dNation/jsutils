@@ -1,5 +1,5 @@
 var assert = require("assert");
-const Obj = require("../lib/jstoolbox.js").Obj;
+const Obj = require("../jstoolbox.js").Obj;
 
 describe("Object Methods", function()
 {

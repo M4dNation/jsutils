@@ -1,6 +1,6 @@
 var assert = require("assert");
-const Arr = require("../lib/jstoolbox.js").Arr;
-const Obj = require("../lib/jstoolbox.js").Obj;
+const Arr = require("../jstoolbox.js").Arr;
+const Obj = require("../jstoolbox.js").Obj;
 
 describe("Array Methods", function()
 {

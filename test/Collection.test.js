@@ -1,8 +1,8 @@
 var assert = require("assert");
-const Collection = require("../lib/jstoolbox.js").Collection;
-const Obj = require("../lib/jstoolbox.js").Obj;
-const Utility = require("../lib/jstoolbox.js").Utility;
-const Num = require("../lib/jstoolbox.js").Num;
+const Collection = require("../jstoolbox.js").Collection;
+const Obj = require("../jstoolbox.js").Obj;
+const Utility = require("../jstoolbox.js").Utility;
+const Num = require("../jstoolbox.js").Num;
 
 describe("Collection Methods", function()
 {

@@ -1,6 +1,6 @@
 var assert = require("assert");
-const Obj = require("../lib/jstoolbox.js").Obj;
-const Str = require("../lib/jstoolbox.js").Str;
+const Obj = require("../jstoolbox.js").Obj;
+const Str = require("../jstoolbox.js").Str;
 
 describe("String Methods", function()
 {
