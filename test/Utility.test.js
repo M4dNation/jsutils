@@ -58,4 +58,33 @@ describe("Utility Methods", function()
             assert.strictEqual(Obj.isEqual(code, "fr"), true);
         });
     });
+
+    describe("flagEncode", function()
+    {
+        it("Should give a flag based on specified arrays.", function()
+        {
+            let booleans = [0, 0, 1, 0, ,1]
+            let binaryValues = [1, 2, 4, 8, 16];
+
+            let flag = Utility.flagEncode(booleans, binaryValues);
+
+            assert.strictEqual(Obj.isNumber(flag), true);
+            assert.strictEqual(Obj.isEqual(flag, 20));
+        });
+    });
+
+    describe("flagDecode", function()
+    {
+        it("Should give an array based on specified flags.", function()
+        {
+            let flag = 20;
+            let binaryValues = [1, 2, 4, 8, 16];
+
+            let booleans = Utility.flagDecode(flag, binaryValues);
+
+            assert.strictEqual(Obj.isArray(booleans), true);
+            assert.strictEqual(Obj.isEqual(booleans, [4, 16]));
+        });
+
+    });
 });

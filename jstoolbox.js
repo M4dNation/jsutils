@@ -3172,6 +3172,49 @@ class Utility
             return res[0];
         }
     }
+
+    /**
+     * flagEncode
+     * This function is used in order to encode a list of boolean values as a flag entity.
+     * @param   {Array}     booleans        The booleans to parse.
+     * @param   {Array}     binaryValues    The corresponding binary values.
+     * @return  {Number}                    The generated flag.
+     */
+    static flagEncode(booleans, binaryValues)
+    {
+        let flag = 0;
+
+        if (!Obj.isArray(booleans) || !Obj.isArray(binaryValues) || !Obj.isEqual(booleans.length, binaryValues.length))
+            return flag;
+
+        for (let i = 0; i < booleans.length; i++)
+            flag |= booleans[i] ? binaryValues[i] : 0;
+
+        return flag;
+    }
+
+    /**
+     * flagDecode
+     * This function is used in order to decode a flag as a list of boolean values.
+     * @param   {Number}    flag            The flag to parse.
+     * @param   {Array}     binaryValues    The corresponding binary values.
+     * @return  {Array}                    The corresponding booleans.
+     */
+    static flagDecode(flag, binaryValues)
+    {
+        let booleans = [];
+
+        if (Num.isZero(flag) || !Obj.isArray(binaryValues))
+            return [];
+
+        for (let v of binaryValues)
+        {
+            if (!Num.isZero(flag & v))
+                booleans.push(v);
+        }
+
+        return booleans;
+    }
 };
 
 class Env
