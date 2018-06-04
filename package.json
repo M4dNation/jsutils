@@ -1,6 +1,6 @@
 {
   "name": "jstoolbox",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "",
   "main": "src/jstoolbox.js",
   "scripts": {
