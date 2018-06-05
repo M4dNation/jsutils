@@ -52,8 +52,31 @@ const alphanumeric =
     'ar': /^[٠١٢٣٤٥٦٧٨٩0-9ءآأؤإئابةتثجحخدذرزسشصضطظعغفقكلمنهوىيًٌٍَُِّْٰ]+$/,
 };
 
+const DEFAUT_FQDN_OPTIONS = 
+{
+    requireTld: true,
+    allowUnderscores: false,
+    allowTrailingDot: false
+};
+
+const DEFAULT_URL_OPTIONS = 
+{
+    protocols: ['http', 'https'],
+    require_tld: true,
+    require_protocol: true,
+    require_host: true,
+    require_valid_protocol: true,
+    allow_underscores: false,
+    allow_trailing_dot: false,
+    allow_protocol_relative_urls: false,
+};
+
 const ascii = /^[\x00-\x7F]+$/;
+const IPV6 = /^[0-9A-F]{1,4}$/i;
 const numeric = /^[+-]?([0-9]*[.])?[0-9]+$/;
+const hexcolor = /^#?([0-9A-F]{3}|[0-9A-F]{6})$/i;
+const wrappedIPV6 = /^\[([^\]]+)\](?::([0-9]+))?$/;
+const IPV4 = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/;
 
 class Collection
 {
@@ -3335,6 +3358,282 @@ class Utility
 
         return booleans;
     }
+
+    /**
+     * rgbToHex
+     * This function is used in order to transform an rgb color value to an hex.
+     * @param   {Number}    r               The red color value.
+     * @param   {Number}    g               The green color value.
+     * @param   {Number}    b               The blue color value. 
+     * @return  {String}                    The corresponding hexadecimal string.
+     */
+    static rgbToHex(r, g, b)
+    {
+        return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
+    }
+
+    /**
+     * hexToRgb
+     * This function is used in order to transform an hex value to an rgb one.
+     * @param   {String}    hex             The hex value.
+     * @return  {Object}                    The corresponding rgb object.
+     */
+    static hexToRgb(hex)
+    {
+        var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+
+        hex = hex.replace(shorthandRegex, function(m, r, g, b) 
+        {
+            return r + r + g + g + b + b;
+        });
+        
+        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        
+        return result ? 
+        {
+            r: parseInt(result[1], 16),
+            g: parseInt(result[2], 16),
+            b: parseInt(result[3], 16)
+        } : null;
+    }
+
+    /**
+     * isHexColor
+     * This function is used in order to transform an hex value to an rgb one.
+     * @param   {String}    hex             The hex value.
+     * @return  {Object}                    The corresponding rgb object.
+     */
+    static isHexColor(color)
+    {
+        if (Obj.isString(color))
+            return hexcolor.test(color);
+
+        if (Obj.isNumber(color))
+            return color < 16777215 && color > 0;
+
+        return false;
+    }
+
+    /**
+     * isFQDN
+     * This function is used in order to know if a value is a Fully Qualified Domain Name.
+     * @param   {String}    str             The domain to evaluate.
+     * @return  {Boolean}                   True if domain is a FQDN, false otherwise.
+     */
+    static isFQDN(str, options = DEFAUT_FQDN_OPTIONS)
+    {
+		if (!Obj.isString(str))
+			return false;
+
+        if (options.allowTrailingDot && Obj.isEqual(str[str.length - 1], "."))
+            str = str.substring(0, str.length -1);
+
+        const parts = str.split(".");
+
+        for (let i = 0; i < parts.length; i++)
+        {
+            if (parts[i].length > 63)
+                return false;
+        }
+
+        if (options.requireTld)
+        {
+            const tld = parts.pop();
+            
+            if (!parts.length || !/^([a-z\u00a1-\uffff]{2,}|xn[a-z0-9-]{2,})$/i.test(tld))
+                return false;
+
+            if (/[\s\u2002-\u200B\u202F\u205F\u3000\uFEFF\uDB40\uDC20]/.test(tld))
+                return false;
+        }
+
+        for (let part, i = 0; i < parts.length; i++)
+        {
+            part = parts[i];
+
+            if (options.allowUnderscores)
+                part = part.replace(/_g/, '');
+
+            if (!/^[a-z\u00a1-\uffff0-9-]+$/i.test(part))
+                return false;
+
+            if (/[\uff01-\uff5e]/.test(part))
+                return false;
+
+            if (Obj.isEqual(part[0], "-") || Obj.isEqual(part[part.length -1], "-"))
+                return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * isIp
+     * This function is used in order to know if a value is an ip address.
+     * @param   {String}    str             The address to evaluate.
+     * @param   {Number}    version         The ip protocol version to use.
+     * @return  {Boolean}                   True if address is an ip, false otherwise.
+     */
+    static isIp(str, version)
+    {
+        if (Obj.isFalsy(version))
+            return Utility.isIp(str, 4) || Utility.isIp(str, 6);
+        
+        if (Obj.isEqual(version, 4))
+        {
+            if (!IPV4.test(str))
+                return false;
+
+            const parts = str.split(".").sort((a,b) => a -b);
+            return parts[3] <= 255;
+        }
+        else if (Obj.isEqual(version, 6))
+        {
+            const blocks = str.split(":");
+            let foundOmissionBlock = false;
+            const foundIPV4TransitionBlock = Utility.isIp(blocks[blocks.length - 1], 4);
+            const expectedNumberOfBlocks = foundIPV4TransitionBlock ? 7 : 8;
+
+            if (blocks.length > expectedNumberOfBlocks)
+                return false;
+
+            if (Obj.isEqual(str, "::"))
+            {
+                return true;
+            }
+            else if (str.substr(0, 2) === "::")
+            {
+                blocks.shift();
+                blocks.shift();
+                foundOmissionBlock = true;
+            }
+            else if (Obj.isEqual(str.substr(str.length - 2), "::"))
+            {
+                blocks.pop();
+                blocks.pop();
+                foundOmissionBlock = true;
+            }
+
+            for (let i = 0; i < blocks.length; ++i) 
+            {
+                if (Obj.isEqual(blocks[i], "") && i > 0 && i < blocks.length - 1) 
+                {
+                    if (foundOmissionBlock) 
+                        return false; 
+
+                    foundOmissionBlock = true;
+                } 
+                else if (!IPV6.test(blocks[i])) 
+                {
+                    return false;
+                }
+            }
+            
+            if (foundOmissionBlock) 
+                return blocks.length >= 1;
+          
+            return blocks.length === expectedNumberOfBlocks;
+        }
+
+        return false;
+    }
+
+    /**
+     * isURL
+     * This function is used in order to know if a value is an URL address.
+     * @param   {String}    str             The address to evaluate.
+     * @param   {Number}    version         The ip protocol version to use.
+     * @return  {Boolean}                   True if address is an ip, false otherwise.
+     */
+    static isURL(url, options = DEFAULT_URL_OPTIONS)
+    {
+        if (Obj.isFalsy(url) || url.length >= 2083 || /[\s<>]/.test(url))
+            return false;
+        
+        if (Obj.isEqual(url.indexOf('mailto:'), 0))
+            return false;
+
+        let protocol, auth, host, hostname, port, portStr, split, ipv6;
+
+        split = url.split("#");
+        url = split.shift();
+
+        split = url.split("?");
+        url = split.shift();
+
+        split = url.split("://");
+
+        if (split.length > 1)
+        {
+            protocol = split.shift();
+            if (options.require_valid_protocol && options.protocols.indexOf(protocol) === -1)
+                return false;
+        }
+        else if (options.require_protocol)
+        {
+            return false;
+        }
+        else if (options.allow_protocol_relative_urls && url.substr(0, 2) === "//")
+        {
+            split[0] = url.substr(0, 2);
+        }
+
+        url = split.join("://");
+
+        if (Obj.isEqual(url, ""))
+            return false;
+        
+        split = url.split("/");
+        url = split.shift();
+
+        if (Obj.isEqual(url, "") && !options.require_host)
+            return true;
+
+        split = url.split("@");
+
+        if (split.length > 1)
+        {
+            auth = split.shift;
+            if (auth.indexOf(":" >= 0 && auth.split(":").length > 2))
+                return false;
+        }
+
+        hostname = split.join("@");
+
+        portStr = null;
+        ipv6 = null;
+
+        const ipv6Match = hostname.match(wrappedIPV6);
+
+        if (ipv6Match)
+        {
+            host = "";
+            ipv6 = ipv6Match[1];
+            portStr = ipv6Match[2] || null;
+        }
+        else
+        {
+            split = hostname.split(":");
+            host = split.shift();
+            if (split.length)
+                portStr = split.join(":");
+        }
+
+        if (!Obj.isNull(portStr))
+        {
+            port = parseInt(portStr, 10);
+
+            if (!/^[0-9]+$/.test(portStr) || port <= 0 || port > 65535)
+                return false;
+        }
+
+        if (!Utility.isIp(host) && !Utility.isFQDN(host, options) && (!ipv6 && !Utility.isIp(ipv6, 6)))
+            return false;
+
+        return true;
+    }
+
+    
 };
 
 class Env
