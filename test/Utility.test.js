@@ -177,4 +177,38 @@ describe("Utility Methods", function()
             assert.strictEqual(Utility.isURL("ftp://chrome"), false);
         });
     });
+
+    describe("isDataURI", function()
+    {
+        it("Should find out if the provided address is a data URI.", function()
+        {
+            assert.strictEqual(Utility.isDataURI("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD///+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4Ug9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC"), true);
+            assert.strictEqual(Utility.isDataURI("data:,Hello World!"), true);
+            assert.strictEqual(Utility.isDataURI("dataxbase64"), false);
+            assert.strictEqual(Utility.isDataURI("data:text/html;charset=,%3Ch1%3EHello!%3C%2Fh1%3E"), false);
+            assert.strictEqual(Utility.isDataURI("http://wikipedia.org"), false);
+        });
+    });
+
+    describe("isPort", function()
+    {
+        it("Should find out if the provided value is a port.", function()
+        {
+            assert.strictEqual(Utility.isPort("titi"), false);
+            assert.strictEqual(Utility.isPort("52"), true);
+            assert.strictEqual(Utility.isPort(12), true);
+            assert.strictEqual(Utility.isPort(-12), false);
+            assert.strictEqual(Utility.isPort(90000), false);
+            assert.strictEqual(Utility.isPort(80), true);
+        });
+    });
+
+    describe("isHash", function()
+    {
+        it("Should find out if the provided value is a hash.", function()
+        {
+            assert.strictEqual(Utility.isHash("6153A6FA0E4880D9B8D0BE4720F78E895265D0A9", "sha1"), false);
+            assert.strictEqual(Utility.isHash("d6aa97d33d459ea3670056e737c99a3d", "md5"), true);
+        });
+    });
 });

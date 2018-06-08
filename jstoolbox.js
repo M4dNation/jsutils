@@ -71,12 +71,32 @@ const DEFAULT_URL_OPTIONS =
     allow_protocol_relative_urls: false,
 };
 
+const HASH_LENGTHS = 
+{
+    md5: 32,
+    md4: 32,
+    sha1: 40,
+    sha256: 64,
+    sha384: 96,
+    sha512: 128,
+    ripemd128: 32,
+    ripemd160: 40,
+    tiger128: 32,
+    tiger160: 40,
+    tiger192: 48,
+    crc32: 8,
+    crc32b: 8,
+};
+
 const ascii = /^[\x00-\x7F]+$/;
 const IPV6 = /^[0-9A-F]{1,4}$/i;
 const numeric = /^[+-]?([0-9]*[.])?[0-9]+$/;
+const validAttribute = /^[a-z\-]+=[a-z0-9\-]+$/i;
+const validMediaType = /^[a-z]+\/[a-z0-9\-\+]+$/i;
 const hexcolor = /^#?([0-9A-F]{3}|[0-9A-F]{6})$/i;
 const wrappedIPV6 = /^\[([^\]]+)\](?::([0-9]+))?$/;
 const IPV4 = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/;
+const validData = /^[a-z0-9!\$&'\(\)\*\+,;=\-\._~:@\/\?%\s]*$/i;
 
 class Collection
 {
@@ -3633,7 +3653,77 @@ class Utility
         return true;
     }
 
-    
+    /**
+     * isDataURI
+     * This function is used in order to know if a data is an URI .
+     * @param   {String}    data            The data to evaluate.
+     * @return  {Boolean}                   True if data is an URI, false otherwise.
+     */
+    static isDataURI(data)
+    {
+        data = data.split(',');
+        
+        if (data.length < 2) 
+            return false;
+        
+        const attributes = data.shift().trim().split(';');
+        const schemeAndMediaType = attributes.shift();
+        const mediaType = schemeAndMediaType.substr(5);
+
+        if (schemeAndMediaType.substr(0, 5) !== 'data:')
+            return false;
+  
+        if (mediaType !== '' && !validMediaType.test(mediaType)) 
+            return false;
+
+        for (let i = 0; i < attributes.length; i++) 
+        {
+            if (i === attributes.length - 1 && attributes[i].toLowerCase() === 'base64') 
+            {
+            } 
+            else if (!validAttribute.test(attributes[i])) return false;
+        }
+
+        for (let i = 0; i < data.length; i++) 
+        {
+            if (!validData.test(data[i]))
+                return false;
+        }
+        
+        return true;
+    }
+
+    /**
+     * isPort
+     * This function is used in order to know if a value is a port.
+     * @param   {Number}    value           The value to evaluate.
+     * @return  {Boolean}                   True if value is a port, false otherwise.
+     */
+    static isPort(value)
+    {
+        value = parseInt(value, 10);
+        if (!Obj.isNumber(value))
+            return false;
+
+        return value >= 0 && value <= 65535;
+    }
+
+    /**
+     * isHash
+     * This function is used in order to know if a value is an hash.
+     * @param   {String}    hash            The hash to evaluate.
+     * @param   {String}    algorithm       The algorithm to evaluate.
+     * @return  {Boolean}                   True if value is a port, false otherwise.
+     */
+    static isHash(hash, algorithm)
+    {
+        if (!Obj.isString(hash))
+            return false;
+
+        const reg = new RegExp(`^[a-f0-9]{${HASH_LENGTHS[algorithm]}}$`);
+
+        return reg.test(hash);
+    }
 };
 
 class Env
