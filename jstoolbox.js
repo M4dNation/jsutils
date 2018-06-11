@@ -90,6 +90,7 @@ const HASH_LENGTHS =
 
 const ascii = /^[\x00-\x7F]+$/;
 const IPV6 = /^[0-9A-F]{1,4}$/i;
+const hexadecimal = /^[0-9A-F]+$/i;
 const numeric = /^[+-]?([0-9]*[.])?[0-9]+$/;
 const validAttribute = /^[a-z\-]+=[a-z0-9\-]+$/i;
 const validMediaType = /^[a-z]+\/[a-z0-9\-\+]+$/i;
@@ -3294,6 +3295,20 @@ class Str
             return false;
         
         return ascii.test(str);
+    }
+
+    /**
+     * isHexadecimal
+     * This function is used in order to know if a string is an hexadecimal string.
+     * @param   {String}    str      The string to evaluate.
+	 * @return  {Boolean} True if the string is an hexadecimal string, false otherwise.
+     */
+    static isHexadecimal(str)
+    {
+        if (!Obj.isString(str))
+            return false;
+
+        return hexadecimal.test(str);
     }
 };
 
