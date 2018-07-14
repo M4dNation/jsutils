@@ -6,39 +6,6 @@ const Num = require("../jstoolbox.js").Num;
 
 describe("Collection Methods", function()
 {
-    describe("add", function()
-    {
-        it("Should be able to add a number to an array.", function()
-        {
-            let col = [0, 1, 2];
-            col = Collection.add(col, 3, 3);
-
-            assert.strictEqual(Obj.isArray(col), true);
-
-            assert.strictEqual(Obj.isEqual(col, [0,1,2,3]), true);
-        });
-
-        it("Should be able to add a string to an array.", function()
-        {
-            let col = [0, 1, 2];
-            col = Collection.add(col, 3, "21");
-
-            assert.strictEqual(Obj.isArray(col), true);
-
-            assert.strictEqual(Obj.isEqual(col, [0,1,2,"21"]), true);
-        });
-
-        it("Should be able to add a value to an object.", function()
-        {
-            let col = {};
-            col = Collection.add(col, "titi", 5);
-
-            assert.strictEqual(Obj.isObject(col), true);
-
-            assert.strictEqual(Obj.isEqual(col, {"titi": 5}), true);
-        });
-    });
-
     describe("all", function()
     {
         it("Should apply function to a collection.", function()
@@ -292,52 +259,7 @@ describe("Collection Methods", function()
         });
     });
 
-    describe("find", function()
-    {
-        it("Should find the first string in an array.", function()
-        {
-            let col = [0,1,"test", "titi"];
-
-            let result = Collection.find(col, function(v){ return Obj.isString(v) ? true : false});
-
-            assert.strictEqual(Obj.isString(result), true);
-
-            assert.strictEqual(Obj.isEqual(result, "test"), true);
-        });
-
-        it("Should find the first number in an array.", function()
-        {
-            let col = [0,1,"test", "titi"];
-
-            let result = Collection.find(col, function(v){ return Obj.isNumber(v) ? true : false});
-
-            assert.strictEqual(Obj.isNumber(result), true);
-
-            assert.strictEqual(Num.isZero(result), true);
-        });
-
-        it("Should find the first string in an object.", function()
-        {
-            let col = {"a": 1, "b": "test", "c": "titi"};
-
-            let result = Collection.find(col, function(v){ return Obj.isString(v) ? true : false});
-
-            assert.strictEqual(Obj.isString(result), true);
-
-            assert.strictEqual(Obj.isEqual(result, "test"), true);
-        });
-
-        it("Should find the first number in an object.", function()
-        {
-            let col = {"a": 1, "b": "test", "c": "titi"};
-
-            let result = Collection.find(col, function(v){ return Obj.isNumber(v) ? true : false});
-
-            assert.strictEqual(Obj.isNumber(result), true);
-
-            assert.strictEqual(Num.isOne(result), true);
-        });
-    });
+    
 
     describe("findValue", function()
     {
@@ -386,30 +308,7 @@ describe("Collection Methods", function()
         });
     });
 
-    describe("findKey", function()
-    {
-        it("Should find the third value of an array.", function()
-        {
-            let col = [1,2,3,4];
-
-            let result = Collection.findKey(col, function (v) { return v == 2 ? true : false; });
-
-            assert.strictEqual(Obj.isNumber(result), true);
-
-            assert.strictEqual(Obj.isEqual(result, 3), true);
-        });
-
-        it("Should find the value of an object with specific index.", function()
-        {
-            let col = {0: 99, 1: 100, 2: 'str'};
-
-            let result = Collection.findKey(col, function (v) { return v == 2 ? true : false; });
-
-            assert.strictEqual(Obj.isString(result), true);
-
-            assert.strictEqual(Obj.isEqual(result, "str"), true);
-        });
-    });
+    
 
     describe("findIndex", function()
     {
@@ -509,37 +408,6 @@ describe("Collection Methods", function()
             assert.strictEqual(Obj.isArray(result), true);
 
             assert.strictEqual(Obj.isEqual(result, expectedResult), true);
-        });
-    });
-
-    describe("has", function()
-    {
-        it("Should say a key is inside an array.", function()
-        {
-            let col = ["titi", "toto"];
-
-            assert.strictEqual(Collection.has(col, 1), true);
-        });
-
-        it("Should say a key is not inside an array.", function()
-        {
-            let col = ["titi", "toto"];
-
-            assert.strictEqual(Collection.has(col, 10), false);
-        });
-
-        it("Should say a key is inside an object.", function()
-        {
-            let col = {"titi" : "toto"};
-
-            assert.strictEqual(Collection.has(col, "titi"), true);
-        });
-
-        it("Should say a key is not inside an object.", function()
-        {
-            let col = {"titi" : "toto"};
-
-            assert.strictEqual(Collection.has(col, "tata"), false);
         });
     });
 
