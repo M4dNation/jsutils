@@ -5,7 +5,7 @@
   "main": "src/jstoolbox.js",
   "scripts": {
     "compile": "babel jstoolbox.js -d src/",
-    "prepublish": "npm run compile",
+    "prepublishOnly": "npm run compile",
     "test": "mocha --recursive"
   },
   "repository": {

@@ -10,7 +10,7 @@ describe("Collection Methods", function()
     {
         it("Should apply function to a collection.", function()
         {
-            let col = [0, "titi", "false"];
+            let col = [0, 1, 2];
             col = Collection.any(col, Obj.isNumber);
 
             assert.strictEqual(col, true);
