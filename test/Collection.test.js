@@ -6,33 +6,11 @@ const Num = require("../jstoolbox.js").Num;
 
 describe("Collection Methods", function()
 {
-    describe("all", function()
-    {
-        it("Should apply function to a collection.", function()
-        {
-            let col = [0,1,2];
-            col = Collection.all(col, Obj.isNumber);
-
-            assert.strictEqual(col, true);
-        });
-    });
-
-    describe("every", function()
-    {
-        it("Should apply function to a collection.", function()
-        {
-            let col = [0,1,2];
-            col = Collection.every(col, Obj.isNumber);
-
-            assert.strictEqual(col, true);
-        });
-    });
-
     describe("any", function()
     {
         it("Should apply function to a collection.", function()
         {
-            let col = [0,1,2];
+            let col = [0, "titi", "false"];
             col = Collection.any(col, Obj.isNumber);
 
             assert.strictEqual(col, true);

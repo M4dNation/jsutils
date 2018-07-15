@@ -4,7 +4,7 @@ const findKey = require("../../lib/collection/findKey.js");
 
 describe("findKey", function () 
 {
-    it("Should find the third value of an array.", function () 
+    it("Should find the third value of an array", function () 
     {
         let col = [1, 2, 3, 4];
 
@@ -13,7 +13,7 @@ describe("findKey", function ()
         result.should.be.exactly(3);
     });
 
-    it("Should find the value of an object with specific index.", function () 
+    it("Should find the value of an object with specific index", function () 
     {
         let col = { 0: 99, 1: 100, 2: "str" };
 
