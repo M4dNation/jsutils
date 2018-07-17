@@ -6,28 +6,6 @@ const Num = require("../jstoolbox.js").Num;
 
 describe("Collection Methods", function()
 {
-    describe("any", function()
-    {
-        it("Should apply function to a collection.", function()
-        {
-            let col = [0, 1, 2];
-            col = Collection.any(col, Obj.isNumber);
-
-            assert.strictEqual(col, true);
-        });
-    });
-
-    describe("some", function()
-    {
-        it("Should apply function to a collection.", function()
-        {
-            let col = [0,1,2];
-            col = Collection.some(col, Obj.isNumber);
-
-            assert.strictEqual(col, true);
-        });
-    });
-
     describe("average", function()
     {
         it("Should calculate the average of an array.", function()

@@ -9,13 +9,14 @@ describe("isString", function ()
         isString("").should.be.exactly(true);
     });
 
-    it("Should be able to say tata is a string", function () {
+    it("Should be able to say tata is a string", function () 
+    {
         isString("tata").should.be.exactly(true);
     });
 
     it("Should be able to say a date object is not a string", function () 
     {
-        isString(new Date());
+        isString(new Date()).should.be.exactly(false);
     });
 
     it("Should be able to say false is not a string", function () 
