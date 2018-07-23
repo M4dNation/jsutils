@@ -1,6 +1,6 @@
 require("should");
 
-const once = require("../../lib/func/once.js");
+const once = require("../../lib/function/once.js");
 
 describe("once", function()
 {

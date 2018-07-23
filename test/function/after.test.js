@@ -1,6 +1,6 @@
 require("should");
 
-const after = require("../../lib/func/after.js");
+const after = require("../../lib/function/after.js");
 
 describe("after", function() 
 {

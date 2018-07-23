@@ -1,6 +1,6 @@
 require("should");
 
-const compose = require("../../lib/func/compose.js");
+const compose = require("../../lib/function/compose.js");
 
 describe("compose", function()
 {

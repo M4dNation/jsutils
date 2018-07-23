@@ -1,6 +1,6 @@
 require("should");
 
-const times = require("../../lib/func/times.js");
+const times = require("../../lib/function/times.js");
 
 describe("times", function()
 {

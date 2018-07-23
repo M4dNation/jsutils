@@ -1,6 +1,6 @@
 require("should");
 
-const memoize = require("../../lib/func/memoize.js");
+const memoize = require("../../lib/function/memoize.js");
 
 describe("memoize", function()
 {

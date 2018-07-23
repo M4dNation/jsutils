@@ -1,18 +1,27 @@
 {
   "name": "jstoolbox",
-  "version": "0.0.11",
-  "description": "",
-  "main": "src/jstoolbox.js",
-  "scripts": {
-    "compile": "babel jstoolbox.js -d src/",
-    "prepublishOnly": "npm run compile",
-    "test": "mocha --recursive"
-  },
+  "description": "Yet another Javascript functional programming helper library.",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "Axel Vaindal <avaindal@m4dnation.io>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/M4dNation/jstoolbox.git"
   },
-  "author": "m4dnation",
+  "main": "src/main.js",
+  "version": "0.1.0",
+  "scripts": {
+    "compile": "babel lib -d src/;",
+    "prepublishOnly": "npm run compile",
+    "test": "mocha --recursive",
+    "minify": "uglifyjs underscore.js -c \"evaluate=false\" --comments \"/    .*/\" -m",
+    "toto": "node build.js"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/M4dNation/jstoolbox/issues"
