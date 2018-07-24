@@ -1,21 +1,24 @@
 const fs = require("fs");
+const uglify = require("uglify-js");
+
+console.log("Starting minification process...");
 
 const paths = [
-    "lib/array/",
-    "lib/collection/",
-    "lib/env/",
-    "lib/function/",
-    "lib/number/",
-    "lib/object/",
-    "lib/string/",
-    "lib/utility/"
+    "src/array/",
+    "src/collection/",
+    "src/env/",
+    "src/function/",
+    "src/number/",
+    "src/object/",
+    "src/string/",
+    "src/utility/"
 ];
 
 let files = [];
 
 for (let path of paths)
 {
-    let names = fs.readdirSync(path).map(function(name)
+    let names = fs.readdirSync(path, "utf-8").map(function(name)
     {
         return path + name;
     });;
@@ -24,5 +27,19 @@ for (let path of paths)
 }
 
 files = [].concat.apply([], files);
+files.push("src/main.js");
 
-console.log(files);
+for (let i = 0; i < files.length; i++)
+{
+    let content = fs.readFileSync(files[i], "utf8");
+
+    content = uglify.minify(content);
+
+    fs.writeFile(files[i], content.code, "utf-8", function(err)
+    {
+        if (err)
+            throw err;
+
+        console.log(`${files[i]} has been minified.`);
+    });
+}

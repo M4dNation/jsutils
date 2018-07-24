@@ -16,11 +16,9 @@
   "main": "src/main.js",
   "version": "0.1.0",
   "scripts": {
-    "compile": "babel lib -d src/;",
+    "compile": "babel lib -d src; node build.js",
     "prepublishOnly": "npm run compile",
-    "test": "mocha --recursive",
-    "minify": "uglifyjs underscore.js -c \"evaluate=false\" --comments \"/    .*/\" -m",
-    "toto": "node build.js"
+    "test": "mocha --recursive"
   },
   "license": "MIT",
   "bugs": {
@@ -32,6 +30,7 @@
     "babel-cli": "^6.0.0",
     "babel-preset-env": "^1.7.0",
     "mocha": "^5.2.0",
-    "should": "^13.2.1"
+    "should": "^13.2.1",
+    "uglify-js": "^3.4.5"
   }
 }
