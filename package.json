@@ -14,11 +14,11 @@
     "url": "git+https://github.com/M4dNation/jstoolbox.git"
   },
   "main": "src/main.js",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "scripts": {
     "compile": "babel lib -d src; node build.js",
     "prepublishOnly": "npm run compile",
-    "test": "mocha"
+    "test": "mocha --recursive"
   },
   "license": "MIT",
   "bugs": {
