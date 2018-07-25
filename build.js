@@ -1,5 +1,8 @@
 const fs = require("fs");
 const uglify = require("uglify-js");
+const docco = require("docco");
+
+console.log(docco);
 
 console.log("Starting minification process...");
 
@@ -43,3 +46,4 @@ for (let i = 0; i < files.length; i++)
         console.log(`${files[i]} has been minified.`);
     });
 }
+
