@@ -14,7 +14,7 @@
     "url": "git+https://github.com/M4dNation/jstoolbox.git"
   },
   "main": "src/main.js",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "scripts": {
     "compile": "babel lib -d src; node build.js",
     "prepublishOnly": "npm run compile",
