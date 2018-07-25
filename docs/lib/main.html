@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>main.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="../docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>main.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Env</span> </span>{};
+
+Env.isIOS = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isIOS.js"</span>);
+Env.isMac = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isMac.js"</span>);
+Env.isIpad = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isIpad.js"</span>);
+Env.getEnv = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/getEnv.js"</span>);
+Env.isEdge = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isEdge.js"</span>);
+Env.isIpod = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isIpod.js"</span>);
+Env.isLinux = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isLinux.js"</span>);
+Env.getSelf = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/getSelf.js"</span>);
+Env.isOpera = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isOpera.js"</span>);
+Env.isIphone = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isIphone.js"</span>);
+Env.isChrome = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isChrome.js"</span>);
+Env.isMobile = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isMobile.js"</span>);
+Env.isOnline = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isOnline.js"</span>);
+Env.isSafari = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isSafari.js"</span>);
+Env.isTablet = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isTablet.js"</span>);
+Env.getGlobal = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/getGlobal.js"</span>);
+Env.getVendor = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/getVendor.js"</span>);
+Env.isAndroid = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isAndroid.js"</span>);
+Env.isDesktop = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isDesktop.js"</span>);
+Env.isFirefox = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isFirefox.js"</span>);
+Env.isOffline = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isOffline.js"</span>);
+Env.isPhantom = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isPhantom.js"</span>);
+Env.isWindows = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isWindows.js"</span>);
+Env.getDocument = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/getDocument.js"</span>);
+Env.getNavigator = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/getNavigator.js"</span>);
+Env.getUserAgent = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/getUserAgent.js"</span>);
+Env.isBlackberry = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isBlackberry.js"</span>);
+Env.getAppVersion = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/getAppVersion.js"</span>);
+Env.isTouchDevice = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isTouchDevice.js"</span>);
+Env.isAndroidPhone = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isAndroidPhone.js"</span>);
+Env.isWindowsPhone = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isWindowsPhone.js"</span>);
+Env.isAndroidTable = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isAndroidTablet.js"</span>);
+Env.isWindowsTablet = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isWindowsTablet.js"</span>);
+Env.getWindowObject = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/getWindowObject.js"</span>);
+Env.isInternetExplore = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./env/isInternetExplorer.js"</span>);
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Arr</span> </span>{};
+
+Arr.at = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./array/at.js"</span>);
+Arr.zip = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./array/zip.js"</span>);
+Arr.last = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./array/last.js"</span>);
+Arr.tail = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./array/tail.js"</span>);
+Arr.take = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./array/take.js"</span>);
+Arr.union = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./array/union.js"</span>);
+Arr.remove = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./array/remove.js"</span>);
+Arr.unique = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./array/unique.js"</span>);
+Arr.indexOf = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./array/indexOf.js"</span>);
+Arr.initial = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./array/initial.js"</span>);
+Arr.without = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./array/without.js"</span>);
+Arr.toObject = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./array/toObject.js"</span>);
+Arr.difference = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./array/difference.js"</span>);
+Arr.lastIndexOf = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./array/lastIndexOf.js"</span>);
+Arr.intersection = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./array/intersection.js"</span>);
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Obj</span> </span>{};
+
+Obj.get = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/get.js"</span>);
+Obj.type = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/type.js"</span>);
+Obj.build = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/build.js"</span>);
+Obj.fetch = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/fetch.js"</span>);
+Obj.isNaN = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isNaN.js"</span>);
+Obj.merge = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/merge.js"</span>);
+Obj.pairs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/pairs.js"</span>);
+Obj.isBool = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isBool.js"</span>);
+Obj.isChar = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isChar.js"</span>);
+Obj.isDate = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isDate.js"</span>);
+Obj.isNull = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isNull.js"</span>);
+Obj.isTrue = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isTrue.js"</span>);
+Obj.parent = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/parent.js"</span>);
+Obj.howDeep = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/howDeep.js"</span>);
+Obj.isEqual = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isEqual.js"</span>);
+Obj.isError = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isError.js"</span>);
+Obj.isArray = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isArray.js"</span>);
+Obj.isFalse = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isFalse.js"</span>);
+Obj.isFalsy = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isFalsy.js"</span>);
+Obj.resolve = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/resolve.js"</span>);
+Obj.toArray = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/toArray.js"</span>);
+Obj.isTruthy = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isTruthy.js"</span>);
+Obj.isNumber = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isNumber.js"</span>);
+Obj.isObject = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isObject.js"</span>);
+Obj.isExisty = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isExisty.js"</span>);
+Obj.defaults = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/defaults.js"</span>);
+Obj.isRegExp = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isRegExp.js"</span>);
+Obj.isString = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isString.js"</span>);
+Obj.isElement = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isElement.js"</span>);
+Obj.isFunction = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isFunction.js"</span>);
+Obj.isInfinite = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isInfinite.js"</span>);
+Obj.isSameType = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isSameType.js"</span>);
+Obj.isArguments = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isArguments.js"</span>);
+Obj.isUndefined = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isUndefined.js"</span>);
+Obj.isPlainObject = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/isPlainObject.js"</span>);
+Obj.toQueryString = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./object/toQueryString.js"</span>);
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Str</span> </span>{};
+
+Str.ext = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./string/ext.js"</span>);
+Str.endWith = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./string/endWith.js"</span>);
+Str.include = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./string/include.js"</span>);
+Str.isAlpha = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./string/isAlpha.js"</span>);
+Str.isAscii = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./string/isAscii.js"</span>);
+Str.isSpace =  <span class="hljs-built_in">require</span>(<span class="hljs-string">"./string/isSpace.js"</span>);
+Str.isNumeric = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./string/isNumeric.js"</span>);
+Str.startWith = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./string/startWith.js"</span>);
+Str.capitalize = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./string/capitalize.js"</span>);
+Str.htmlDecode = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./string/htmlDecode.js"</span>);
+Str.htmlEncode = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./string/htmlEncode.js"</span>);
+Str.toCamelCase = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./string/toCamelCase.js"</span>);
+Str.urlFriendly = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./string/urlFriendly.js"</span>);
+Str.isLowerCase = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./string/isLowerCase.js"</span>);
+Str.isUpperCase = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./string/isUpperCase.js"</span>);
+Str.isPalindrome = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./string/isPalindrome.js"</span>);
+Str.isCapitalized = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./string/isCapitalized.js"</span>);
+Str.isHexadecimal = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./string/isHexadecimal.js"</span>);
+Str.isAlphanumeric = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./string/isAlphanumeric.js"</span>);
+Str.fromQueryString = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./string/fromQueryString.js"</span>);
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Num</span> </span>{};
+
+Num.gt = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./number/gt.js"</span>);
+Num.lt = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./number/lt.js"</span>);
+Num.lte = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./number/lte.js"</span>);
+Num.gte = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./number/gte.js"</span>);
+Num.isOdd = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./number/isOdd.js"</span>);
+Num.isOne = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./number/isOne.js"</span>);
+Num.range = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./number/range.js"</span>);
+Num.isZero = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./number/isZero.js"</span>);
+Num.isEven = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./number/isEven.js"</span>);
+Num.isTimes = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./number/isTimes.js"</span>);
+Num.isDouble = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./number/isDouble.js"</span>);
+Num.isFinite = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./number/isFinite.js"</span>);
+Num.isTriple = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./number/isTriple.js"</span>);
+Num.isWithin = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./number/isWithin.js"</span>);
+Num.isDecimal = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./number/isDecimal.js"</span>);
+Num.isInteger = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./number/isInteger.js"</span>);
+Num.isNegative = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./number/isNegative.js"</span>);
+Num.isPositive = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./number/isPositive.js"</span>);
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Func</span> </span>{};
+
+Func.once = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./function/once.js"</span>);
+Func.after = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./function/after.js"</span>);
+Func.defer = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./function/defer.js"</span>);
+Func.delay = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./function/delay.js"</span>);
+Func.times = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./function/times.js"</span>);
+Func.compose = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./function/compose.js"</span>);
+Func.memoize = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./function/memoize.js"</span>);
+Func.debounce = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./function/debounce.js"</span>);
+Func.throttle = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./function/throttle.js"</span>);
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Utility</span> </span>{};
+
+Utility.isIp = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./utility/isIp.js"</span>);
+Utility.isURL = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./utility/isURL.js"</span>);
+Utility.value = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./utility/value.js"</span>);
+Utility.isPort = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./utility/isPort.js"</span>);
+Utility.isFQDN = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./utility/isFQDN.js"</span>);
+Utility.isHash = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./utility/isHash.js"</span>);
+Utility.hexToRgb = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./utility/hexToRgb.js"</span>);
+Utility.identity = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./utility/identity.js"</span>);
+Utility.language = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./utility/language.js"</span>);
+Utility.rgbToHex = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./utility/rgbToHex.js"</span>);
+Utility.isDataURI = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./utility/isDataURI.js"</span>);
+Utility.flagEncode = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./utility/flagEncode.js"</span>);
+Utility.flagDecode = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./utility/flagDecode.js"</span>);
+Utility.isHexColor = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./utility/isHexColor.js"</span>);
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Collection</span> </span>{};
+
+Collection.add = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/add.js"</span>);
+Collection.all = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/all.js"</span>);
+Collection.any = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/any.js"</span>);
+Collection.has = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/has.js"</span>);
+Collection.len = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/len.js"</span>);
+Collection.map = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/map.js"</span>);
+Collection.max = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/max.js"</span>);
+Collection.min = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/min.js"</span>);
+Collection.set = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/set.js"</span>);
+Collection.sum = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/sum.js"</span>);
+Collection.size = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/size.js"</span>);
+Collection.deep = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/deep.js"</span>);
+Collection.each = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/each.js"</span>);
+Collection.find = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/find.js"</span>);
+Collection.most = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/most.js"</span>);
+Collection.none = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/none.js"</span>);
+Collection.keys = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/keys.js"</span>);
+Collection.where = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/where.js"</span>);
+Collection.clear = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/clear.js"</span>);
+Collection.clone = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/clone.js"</span>);
+Collection.count = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/count.js"</span>);
+Collection.empty = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/empty.js"</span>);
+Collection.least = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/least.js"</span>);
+Collection.sortBy = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/sortBy.js"</span>);
+Collection.values = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/values.js"</span>);
+Collection.filter = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/filter.js"</span>);
+Collection.invert = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/invert.js"</span>);
+Collection.invoke = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/invoke.js"</span>);
+Collection.sample = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/sample.js"</span>);
+Collection.reject = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/reject.js"</span>);
+Collection.countBy = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/countBy.js"</span>);
+Collection.findKey = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/findKey.js"</span>);
+Collection.flatten = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/flatten.js"</span>);
+Collection.average = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/average.js"</span>);
+Collection.compact = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/compact.js"</span>);
+Collection.groupBy = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/groupBy.js"</span>);
+Collection.shuffle = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/shuffle.js"</span>);
+Collection.isEmpty = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/isEmpty.js"</span>);
+Collection.replace = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/replace.js"</span>);
+Collection.contains = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/contains.js"</span>);
+Collection.groupsOf = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/groupsOf.js"</span>);
+Collection.isUnique = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/isUnique.js"</span>);
+Collection.blacklist = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/blacklist.js"</span>);
+Collection.getByType = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/getByType.js"</span>);
+Collection.setUndefined = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./collection/setUndefined.js"</span>);
+
+<span class="hljs-built_in">module</span>.exports = {
+    Env,
+    Arr,
+    Obj,
+    Str,
+    Num,
+    Func,
+    Utility,
+    Collection
+};</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

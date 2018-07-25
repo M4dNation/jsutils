@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>toObject.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="../../docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="at.html">
+                  lib/array/at.js
+                </a>
+              
+                
+                <a class="source" href="difference.html">
+                  lib/array/difference.js
+                </a>
+              
+                
+                <a class="source" href="indexOf.html">
+                  lib/array/indexOf.js
+                </a>
+              
+                
+                <a class="source" href="initial.html">
+                  lib/array/initial.js
+                </a>
+              
+                
+                <a class="source" href="intersection.html">
+                  lib/array/intersection.js
+                </a>
+              
+                
+                <a class="source" href="last.html">
+                  lib/array/last.js
+                </a>
+              
+                
+                <a class="source" href="lastIndexOf.html">
+                  lib/array/lastIndexOf.js
+                </a>
+              
+                
+                <a class="source" href="remove.html">
+                  lib/array/remove.js
+                </a>
+              
+                
+                <a class="source" href="tail.html">
+                  lib/array/tail.js
+                </a>
+              
+                
+                <a class="source" href="take.html">
+                  lib/array/take.js
+                </a>
+              
+                
+                <a class="source" href="toObject.html">
+                  lib/array/toObject.js
+                </a>
+              
+                
+                <a class="source" href="union.html">
+                  lib/array/union.js
+                </a>
+              
+                
+                <a class="source" href="unique.html">
+                  lib/array/unique.js
+                </a>
+              
+                
+                <a class="source" href="without.html">
+                  lib/array/without.js
+                </a>
+              
+                
+                <a class="source" href="zip.html">
+                  lib/array/zip.js
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>toObject.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> each = <span class="hljs-built_in">require</span>(<span class="hljs-string">"../collection/each.js"</span>);
+<span class="hljs-keyword">const</span> isArray = <span class="hljs-built_in">require</span>(<span class="hljs-string">"../object/isArray.js"</span>);
+
+<span class="hljs-comment">/**
+ * Transform an array to an object.
+ * @returns {Object} The converted object
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toObject</span>(<span class="hljs-params"></span>) 
+</span>{
+    <span class="hljs-keyword">var</span> arrs = [], ret = {}, allArrays = <span class="hljs-literal">true</span>, i = <span class="hljs-number">0</span>;
+    each(<span class="hljs-built_in">arguments</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) 
+    </span>{
+        <span class="hljs-keyword">if</span> (isArray(value)) arrs.push(value);
+        <span class="hljs-keyword">else</span> allArrays = <span class="hljs-literal">false</span>;
+    });
+
+    <span class="hljs-keyword">if</span> (allArrays &amp;&amp; arrs.length === <span class="hljs-number">2</span>) 
+    {
+        <span class="hljs-keyword">var</span> keys = arrs[<span class="hljs-number">1</span>];
+        <span class="hljs-keyword">for</span> (; i &lt; arrs[<span class="hljs-number">0</span>].length; i++) 
+        {
+            ret[arrs[<span class="hljs-number">0</span>][i]] = keys[i];
+        }
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (allArrays &amp;&amp; arrs.length &gt; <span class="hljs-number">1</span>) 
+    {
+        <span class="hljs-keyword">for</span> (; i &lt; arrs.length; i++)
+        {
+            <span class="hljs-keyword">var</span> key = arrs[i][<span class="hljs-number">0</span>];
+            ret[key] = arrs[i][<span class="hljs-number">1</span>];
+        }
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (allArrays &amp;&amp; arrs.length == <span class="hljs-number">1</span>) 
+    {
+        <span class="hljs-keyword">for</span> (; i &lt; arrs[<span class="hljs-number">0</span>].length; i += <span class="hljs-number">2</span>) 
+        {
+            ret[arrs[<span class="hljs-number">0</span>][i]] = arrs[<span class="hljs-number">0</span>][i + <span class="hljs-number">1</span>];
+        }
+    }
+    <span class="hljs-keyword">else</span> 
+    {
+        <span class="hljs-keyword">for</span> (; i &lt; <span class="hljs-built_in">arguments</span>.length; i += <span class="hljs-number">2</span>) 
+        {
+            ret[<span class="hljs-built_in">arguments</span>[i]] = <span class="hljs-built_in">arguments</span>[i + <span class="hljs-number">1</span>];
+        }
+    }
+
+    <span class="hljs-keyword">return</span> ret;
+}
+
+<span class="hljs-built_in">module</span>.exports = toObject;</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

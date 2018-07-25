@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>gte.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="../../docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="gt.html">
+                  lib/number/gt.js
+                </a>
+              
+                
+                <a class="source" href="gte.html">
+                  lib/number/gte.js
+                </a>
+              
+                
+                <a class="source" href="isDecimal.html">
+                  lib/number/isDecimal.js
+                </a>
+              
+                
+                <a class="source" href="isDouble.html">
+                  lib/number/isDouble.js
+                </a>
+              
+                
+                <a class="source" href="isEven.html">
+                  lib/number/isEven.js
+                </a>
+              
+                
+                <a class="source" href="isFinite.html">
+                  lib/number/isFinite.js
+                </a>
+              
+                
+                <a class="source" href="isInteger.html">
+                  lib/number/isInteger.js
+                </a>
+              
+                
+                <a class="source" href="isNegative.html">
+                  lib/number/isNegative.js
+                </a>
+              
+                
+                <a class="source" href="isOdd.html">
+                  lib/number/isOdd.js
+                </a>
+              
+                
+                <a class="source" href="isOne.html">
+                  lib/number/isOne.js
+                </a>
+              
+                
+                <a class="source" href="isPositive.html">
+                  lib/number/isPositive.js
+                </a>
+              
+                
+                <a class="source" href="isTimes.html">
+                  lib/number/isTimes.js
+                </a>
+              
+                
+                <a class="source" href="isTriple.html">
+                  lib/number/isTriple.js
+                </a>
+              
+                
+                <a class="source" href="isWithin.html">
+                  lib/number/isWithin.js
+                </a>
+              
+                
+                <a class="source" href="isZero.html">
+                  lib/number/isZero.js
+                </a>
+              
+                
+                <a class="source" href="lt.html">
+                  lib/number/lt.js
+                </a>
+              
+                
+                <a class="source" href="lte.html">
+                  lib/number/lte.js
+                </a>
+              
+                
+                <a class="source" href="range.html">
+                  lib/number/range.js
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>gte.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> gt = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./gt.js"</span>);
+<span class="hljs-keyword">const</span> isNumber = <span class="hljs-built_in">require</span>(<span class="hljs-string">"../object/isNumber.js"</span>);
+
+<span class="hljs-comment">/**
+ * Evaluate if the first value is greater than or equal to the second one.
+ * @param   {Number}    n       The number to evaluate
+ * @param   {Number}    val     The gap value
+ * @returns {Boolean}           True if n is greater than val or equal, false otherwise
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">gte</span>(<span class="hljs-params">n, val</span>) 
+</span>{
+    <span class="hljs-keyword">if</span> (isNumber(n) &amp;&amp; isNumber(val)) 
+    {
+        <span class="hljs-keyword">if</span> (gt(n,val) || n === val)
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+}
+
+<span class="hljs-built_in">module</span>.exports = gte;</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

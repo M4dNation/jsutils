@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>isAlphanumeric.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="../../docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="capitalize.html">
+                  lib/string/capitalize.js
+                </a>
+              
+                
+                <a class="source" href="endWith.html">
+                  lib/string/endWith.js
+                </a>
+              
+                
+                <a class="source" href="ext.html">
+                  lib/string/ext.js
+                </a>
+              
+                
+                <a class="source" href="fromQueryString.html">
+                  lib/string/fromQueryString.js
+                </a>
+              
+                
+                <a class="source" href="htmlDecode.html">
+                  lib/string/htmlDecode.js
+                </a>
+              
+                
+                <a class="source" href="htmlEncode.html">
+                  lib/string/htmlEncode.js
+                </a>
+              
+                
+                <a class="source" href="include.html">
+                  lib/string/include.js
+                </a>
+              
+                
+                <a class="source" href="isAlpha.html">
+                  lib/string/isAlpha.js
+                </a>
+              
+                
+                <a class="source" href="isAlphanumeric.html">
+                  lib/string/isAlphanumeric.js
+                </a>
+              
+                
+                <a class="source" href="isAscii.html">
+                  lib/string/isAscii.js
+                </a>
+              
+                
+                <a class="source" href="isCapitalized.html">
+                  lib/string/isCapitalized.js
+                </a>
+              
+                
+                <a class="source" href="isHexadecimal.html">
+                  lib/string/isHexadecimal.js
+                </a>
+              
+                
+                <a class="source" href="isLowerCase.html">
+                  lib/string/isLowerCase.js
+                </a>
+              
+                
+                <a class="source" href="isNumeric.html">
+                  lib/string/isNumeric.js
+                </a>
+              
+                
+                <a class="source" href="isPalindrome.html">
+                  lib/string/isPalindrome.js
+                </a>
+              
+                
+                <a class="source" href="isSpace.html">
+                  lib/string/isSpace.js
+                </a>
+              
+                
+                <a class="source" href="isUpperCase.html">
+                  lib/string/isUpperCase.js
+                </a>
+              
+                
+                <a class="source" href="startWith.html">
+                  lib/string/startWith.js
+                </a>
+              
+                
+                <a class="source" href="toCamelCase.html">
+                  lib/string/toCamelCase.js
+                </a>
+              
+                
+                <a class="source" href="urlFriendly.html">
+                  lib/string/urlFriendly.js
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>isAlphanumeric.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> isString = <span class="hljs-built_in">require</span>(<span class="hljs-string">"../object/isString.js"</span>);
+
+<span class="hljs-keyword">const</span> alphanumeric = 
+{
+    <span class="hljs-string">"en-US"</span>: <span class="hljs-regexp">/^[0-9A-Z]+$/i</span>,
+    <span class="hljs-string">"bg-BG"</span>: <span class="hljs-regexp">/^[0-9А-Я]+$/i</span>,
+    <span class="hljs-string">"cs-CZ"</span>: <span class="hljs-regexp">/^[0-9A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ]+$/i</span>,
+    <span class="hljs-string">"da-DK"</span>: <span class="hljs-regexp">/^[0-9A-ZÆØÅ]+$/i</span>,
+    <span class="hljs-string">"de-DE"</span>: <span class="hljs-regexp">/^[0-9A-ZÄÖÜß]+$/i</span>,
+    <span class="hljs-string">"el-GR"</span>: <span class="hljs-regexp">/^[0-9Α-ω]+$/i</span>,
+    <span class="hljs-string">"es-ES"</span>: <span class="hljs-regexp">/^[0-9A-ZÁÉÍÑÓÚÜ]+$/i</span>,
+    <span class="hljs-string">"fr-FR"</span>: <span class="hljs-regexp">/^[0-9A-ZÀÂÆÇÉÈÊËÏÎÔŒÙÛÜŸ]+$/i</span>,
+    <span class="hljs-string">"it-IT"</span>: <span class="hljs-regexp">/^[0-9A-ZÀÉÈÌÎÓÒÙ]+$/i</span>,
+    <span class="hljs-string">"hu-HU"</span>: <span class="hljs-regexp">/^[0-9A-ZÁÉÍÓÖŐÚÜŰ]+$/i</span>,
+    <span class="hljs-string">"nb-NO"</span>: <span class="hljs-regexp">/^[0-9A-ZÆØÅ]+$/i</span>,
+    <span class="hljs-string">"nl-NL"</span>: <span class="hljs-regexp">/^[0-9A-ZÁÉËÏÓÖÜÚ]+$/i</span>,
+    <span class="hljs-string">"nn-NO"</span>: <span class="hljs-regexp">/^[0-9A-ZÆØÅ]+$/i</span>,
+    <span class="hljs-string">"pl-PL"</span>: <span class="hljs-regexp">/^[0-9A-ZĄĆĘŚŁŃÓŻŹ]+$/i</span>,
+    <span class="hljs-string">"pt-PT"</span>: <span class="hljs-regexp">/^[0-9A-ZÃÁÀÂÇÉÊÍÕÓÔÚÜ]+$/i</span>,
+    <span class="hljs-string">"ru-RU"</span>: <span class="hljs-regexp">/^[0-9А-ЯЁ]+$/i</span>,
+    <span class="hljs-string">"sk-SK"</span>: <span class="hljs-regexp">/^[0-9A-ZÁČĎÉÍŇÓŠŤÚÝŽĹŔĽÄÔ]+$/i</span>,
+    <span class="hljs-string">"sr-RS@latin"</span>: <span class="hljs-regexp">/^[0-9A-ZČĆŽŠĐ]+$/i</span>,
+    <span class="hljs-string">"sr-RS"</span>: <span class="hljs-regexp">/^[0-9А-ЯЂЈЉЊЋЏ]+$/i</span>,
+    <span class="hljs-string">"sv-SE"</span>: <span class="hljs-regexp">/^[0-9A-ZÅÄÖ]+$/i</span>,
+    <span class="hljs-string">"tr-TR"</span>: <span class="hljs-regexp">/^[0-9A-ZÇĞİıÖŞÜ]+$/i</span>,
+    <span class="hljs-string">"uk-UA"</span>: <span class="hljs-regexp">/^[0-9А-ЩЬЮЯЄIЇҐі]+$/i</span>,
+    <span class="hljs-string">"ar"</span>: <span class="hljs-regexp">/^[٠١٢٣٤٥٦٧٨٩0-9ءآأؤإئابةتثجحخدذرزسشصضطظعغفقكلمنهوىيًٌٍَُِّْٰ]+$/</span>,
+};
+
+<span class="hljs-comment">/**
+ * Evaluate if a string is an alphanumeric string.
+ * @param   {String}    str         The string to evaluate
+ * @param   {String}    locale      The locate to check for 
+ * @returns {Boolean}               True if the string is an alphanumeric string, false otherwise
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isAlphanumeric</span>(<span class="hljs-params">str, locale = <span class="hljs-string">"fr-FR"</span></span>) 
+</span>{
+    <span class="hljs-keyword">if</span> (!isString(str))
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+
+    str = str.replace(<span class="hljs-regexp">/\s/g</span>, <span class="hljs-string">''</span>);
+
+    <span class="hljs-keyword">if</span> (locale <span class="hljs-keyword">in</span> alphanumeric)
+        <span class="hljs-keyword">return</span> alphanumeric[locale].test(str);
+
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">`Cannot check alphanumeric on locale <span class="hljs-subst">${locale}</span>`</span>);
+}
+
+<span class="hljs-built_in">module</span>.exports = isAlphanumeric;</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
