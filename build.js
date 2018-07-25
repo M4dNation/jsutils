@@ -1,8 +1,5 @@
 const fs = require("fs");
 const uglify = require("uglify-js");
-const docco = require("docco");
-
-console.log(docco);
 
 console.log("Starting minification process...");
 
