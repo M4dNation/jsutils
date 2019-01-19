@@ -31,6 +31,7 @@
     "babel-preset-env": "1.7.0",
     "mocha": "5.2.0",
     "should": "13.2.3",
-    "uglify-js": "3.4.9"
+    "uglify-js": "3.4.9",
+    "xo": "0.24.0"
   }
 }
