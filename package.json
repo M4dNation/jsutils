@@ -27,10 +27,10 @@
   "homepage": "https://github.com/M4dNation/jstoolbox#readme",
   "dependencies": {},
   "devDependencies": {
-    "babel-cli": "^6.0.0",
-    "babel-preset-env": "^1.7.0",
-    "mocha": "^5.2.0",
-    "should": "^13.2.1",
-    "uglify-js": "^3.4.5"
+    "babel-cli": "6.26.0",
+    "babel-preset-env": "1.7.0",
+    "mocha": "5.2.0",
+    "should": "13.2.3",
+    "uglify-js": "3.4.9"
   }
 }
