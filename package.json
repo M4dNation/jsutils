@@ -25,13 +25,11 @@
     "url": "https://github.com/M4dNation/jstoolbox/issues"
   },
   "homepage": "https://github.com/M4dNation/jstoolbox#readme",
-  "dependencies": {},
   "devDependencies": {
     "babel-cli": "6.26.0",
     "babel-preset-env": "1.7.0",
-    "mocha": "5.2.0",
-    "should": "13.2.3",
     "uglify-js": "3.4.9",
-    "xo": "0.24.0"
+    "xo": "0.24.0",
+    "jest": "24.8.0"
   }
 }
