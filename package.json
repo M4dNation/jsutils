@@ -18,7 +18,7 @@
   "scripts": {
     "compile": "babel lib -d src; node build.js",
     "prepublishOnly": "npm run compile",
-    "test": "mocha --recursive"
+    "test": "node node_modules/.bin/jest --runInBand tests/ --config=jest.unit.config.json"
   },
   "license": "MIT",
   "bugs": {
@@ -26,10 +26,26 @@
   },
   "homepage": "https://github.com/M4dNation/jstoolbox#readme",
   "devDependencies": {
-    "babel-cli": "6.26.0",
-    "babel-preset-env": "1.7.0",
-    "uglify-js": "3.4.9",
-    "xo": "0.24.0",
-    "jest": "24.8.0"
+    "@babel/cli": "^7.5.5",
+    "@babel/preset-env": "7.5.5",
+    "jest": "24.9.0",
+    "uglify-js": "3.6.0",
+    "xo": "0.24.0"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "singleQuote": false,
+    "trailingComma": "es5",
+    "bracketSpacing": true
+  },
+  "xo": {
+    "space": 2,
+    "prettier": true,
+    "rules": {
+      "promise/prefer-await-to-then": "warn",
+      "import/no-absolute-path": "off",
+      "import/no-unresolved": "off",
+      "curly": "warn"
+    }
   }
 }

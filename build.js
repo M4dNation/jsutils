@@ -4,43 +4,37 @@ const uglify = require("uglify-js");
 console.log("Starting minification process...");
 
 const paths = [
-    "src/array/",
-    "src/collection/",
-    "src/env/",
-    "src/function/",
-    "src/number/",
-    "src/object/",
-    "src/string/",
-    "src/utility/"
+  "src/array/",
+  "src/collection/",
+  "src/env/",
+  "src/function/",
+  "src/number/",
+  "src/object/",
+  "src/string/",
+  "src/utility/",
 ];
 
 let files = [];
 
-for (let path of paths)
-{
-    let names = fs.readdirSync(path, "utf-8").map(function(name)
-    {
-        return path + name;
-    });;
+for (const path of paths) {
+  const names = fs.readdirSync(path, "utf-8").map(name => {
+    return path + name;
+  });
 
-    files.push(names);    
+  files.push(names);
 }
 
-files = [].concat.apply([], files);
+files = [].concat(...files);
 files.push("src/main.js");
 
-for (let i = 0; i < files.length; i++)
-{
-    let content = fs.readFileSync(files[i], "utf8");
+for (let i = 0; i < files.length; i++) {
+  const { code } = uglify.minify(fs.readFileSync(files[i], "utf8"));
 
-    content = uglify.minify(content);
+  fs.writeFile(files[i], code, "utf-8", err => {
+    if (err) {
+      throw err;
+    }
 
-    fs.writeFile(files[i], content.code, "utf-8", function(err)
-    {
-        if (err)
-            throw err;
-
-        console.log(`${files[i]} has been minified.`);
-    });
+    console.log(`${files[i]} has been minified.`);
+  });
 }
-

@@ -1,0 +1,7 @@
+{
+  "testEnvironment": "node",
+  "notify": false,
+  "verbose": true,
+  "bail": true,
+  "clearMocks": true
+}
