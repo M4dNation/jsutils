@@ -1,13 +1,11 @@
-require("should");
+const difference = require("../../lib/array/difference");
 
-const difference = require("../../lib/array/difference.js");
-
-describe("difference", function() {
-  it("Should get wanted elements.", function() {
+describe("difference", () => {
+  it("Should get wanted elements.", () => {
     const arr = ["Earth", "Mars", "Jupiter"];
 
     const result = difference(arr, ["Earth", "Jupiter"]);
 
-    result.should.eql(["Mars"]);
+    expect(result).toEqual(expect.arrayContaining(["Mars"]));
   });
 });
