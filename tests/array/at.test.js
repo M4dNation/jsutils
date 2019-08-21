@@ -1,13 +1,11 @@
-require("should");
+const at = require("../../lib/array/at");
 
-const at = require("../../lib/array/at.js");
-
-describe("at", function() {
-  it("Should get wanted elements.", function() {
+describe("at", () => {
+  test("Expect to get wanted elements.", () => {
     const arr = ["Earth", "Mars", "Jupiter"];
 
     const result = at(arr, 1);
 
-    result.should.eql(["Mars"]);
+    expect(result).toEqual(expect.arrayContaining(["Mars"]));
   });
 });
