@@ -1,14 +1,12 @@
-require("should");
+const remove = require("../../lib/array/remove");
 
-const remove = require("../../lib/array/remove.js");
+describe("remove", () => {
+  it("Should remove a value from an array.", () => {
+    const arr = [1, 2, 2, 4];
+    const expectedResult = [1, 4];
 
-describe("remove", function() {
-  it("Should remove a value from an array.", function() {
-    let arr = [1, 2, 2, 4];
-    let expectedResult = [1, 4];
+    const result = remove(arr, 2);
 
-    let result = remove(arr, 2);
-
-    result.should.eql(expectedResult);
+    expect(result).toEqual(expect.arrayContaining(expectedResult));
   });
 });
