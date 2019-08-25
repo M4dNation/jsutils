@@ -1,7 +1,7 @@
 const take = require("../../lib/array/take");
 
 describe("take", () => {
-  test("Should get the first element.", () => {
+  test("Expect to get the first element.", () => {
     const arr = ["Earth", "Mars", "Jupiter"];
 
     const result = take(arr);
@@ -9,7 +9,7 @@ describe("take", () => {
     expect(result).toEqual("Earth");
   });
 
-  test("Should get the two first elements", () => {
+  test("Expect to get the two first elements", () => {
     const arr = ["Earth", "Mars", "Jupiter"];
 
     const result = take(arr, 2);

@@ -1,16 +1,12 @@
-require("should");
+const without = require("../../lib/array/without");
 
-const without = require("../../lib/array/without.js");
+describe("without", () => {
+  test("Expect to get the wanted elements.", () => {
+    const arr = ["Red", "Green", "Yellow"];
 
-describe("without", function()
-{
-    it("Should get the wanted elements.", function()
-    {
-        let arr = ["Red", "Green", "Yellow"];
+    const result = without(arr, ["Red"]);
+    const expectedResult = ["Green", "Yellow"];
 
-        let result = without(arr, ["Red"]);
-        let expectedResult = ["Green", "Yellow"];
-
-        result.should.eql(expectedResult);
-    });
+    expect(result).toEqual(expect.arrayContaining(expectedResult));
+  });
 });

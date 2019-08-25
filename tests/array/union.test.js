@@ -1,17 +1,13 @@
-require("should");
+const union = require("../../lib/array/union");
 
-const union = require("../../lib/array/union.js");
+describe("union", () => {
+  test("Exoect to union two arrays in one.", () => {
+    const firstArr = ["Red", "Green"];
+    const secondArr = ["Blue", "Red"];
 
-describe("union", function()
-{
-    it("Should union two arrays in one.", function()
-    {
-        let firstArr = ["Red", "Green"];
-        let secondArr = ["Blue", "Red"];
+    const result = union(firstArr, secondArr);
+    const expectedResult = ["Red", "Green", "Blue"];
 
-        let result = union(firstArr, secondArr);
-        let expectedResult = ["Red", "Green", "Blue"];
-
-        result.should.eql(expectedResult);
-    });
+    expect(result).toEqual(expect.arrayContaining(expectedResult));
+  });
 });

@@ -1,16 +1,12 @@
-require("should");
+const unique = require("../../lib/array/unique");
 
-const unique = require("../../lib/array/unique.js");
+describe("unique", () => {
+  test("Expect to get only the unique elements.", () => {
+    const arr = ["Red", "Green", "Red", "Yellow"];
 
-describe("unique", function()
-{
-    it("Should get only the unique elements.", function()
-    {
-        let arr = ["Red", "Green", "Red", "Yellow"];
+    const result = unique(arr);
+    const expectedResult = ["Red", "Green", "Yellow"];
 
-        let result = unique(arr);
-        let expectedResult = ["Red", "Green", "Yellow"];
-
-        result.should.eql(expectedResult);
-    });
+    expect(result).toEqual(expect.arrayContaining(expectedResult));
+  });
 });
