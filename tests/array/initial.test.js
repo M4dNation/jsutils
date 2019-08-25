@@ -1,21 +1,19 @@
-require("should");
+const initial = require("../../lib/array/initial");
 
-const initial = require("../../lib/array/initial.js");
-
-describe("initial", function() {
-  it("Should get the all but the last element.", function() {
+describe("initial", () => {
+  test("Expect to get all but the last element.", () => {
     const arr = ["Earth", "Mars", "Jupiter"];
 
     const result = initial(arr);
 
-    result.should.eql(["Earth", "Mars"]);
+    expect(result).toEqual(expect.arrayContaining(["Earth", "Mars"]));
   });
 
-  it("Should get all but the two last elements.", function() {
+  it("Expect to get all but the two last elements.", () => {
     const arr = ["Earth", "Mars", "Jupiter"];
 
     const result = initial(arr, 2);
 
-    result.should.eql(["Earth"]);
+    expect(result).toEqual(expect.arrayContaining(["Earth"]));
   });
 });
