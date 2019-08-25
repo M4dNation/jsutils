@@ -1,21 +1,19 @@
-require("should");
+const take = require("../../lib/array/take");
 
-const take = require("../../lib/array/take.js");
+describe("take", () => {
+  test("Should get the first element.", () => {
+    const arr = ["Earth", "Mars", "Jupiter"];
 
-describe("take", function() {
-  it("Should get the first element.", function() {
-    let arr = ["Earth", "Mars", "Jupiter"];
+    const result = take(arr);
 
-    let result = take(arr);
-
-    result.should.be.exactly("Earth");
+    expect(result).toEqual("Earth");
   });
 
-  it("Should get the two first elements", function() {
-    let arr = ["Earth", "Mars", "Jupiter"];
+  test("Should get the two first elements", () => {
+    const arr = ["Earth", "Mars", "Jupiter"];
 
-    let result = take(arr, 2);
+    const result = take(arr, 2);
 
-    result.should.eql(["Earth", "Mars"]);
+    expect(result).toEqual(expect.arrayContaining(["Earth", "Mars"]));
   });
 });
