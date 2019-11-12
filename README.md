@@ -5,6 +5,9 @@
 JSToolbox is a compilation of utility functions for the JavaScript language.
 It provides often used functionalities about string, arrays, collections, object, numbers and more.
 
+THIS PROJECT IS DEPRECATED.
+IT WAS A NICE TOOL WE USED ON MANY OF OUR PROJECTS, BUT WE DECIDED TO STOP MAINTAINING AND GO FOR MORE MAINSTREAM SOLUTIONS INSTEAD.
+
 ## AUTHORS
 
 JSToolbox is maintained by M4dNation.
